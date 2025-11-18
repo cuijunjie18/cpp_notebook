@@ -35,6 +35,8 @@ select低效的两个重要原因:
 - 最终需要遍历一遍才能知道哪几个socket活跃.
 - 每次调用都要重新将进程添加到相应socket的等待队列里.
 
+[select_demo示例](select_demo(web_server).cpp)  
+
 ## poll笔记
 
 与select类似，只是用 pollfd 数组替代位图，同时比select多了更多的事件监测.
@@ -61,6 +63,8 @@ while(1){
 
 epoll的内核的监测socket的数据结构是红黑树，支持快速的增删改查；而epoll对象的就绪列表采用的是双向链表，链表上的每一个节点都是活跃的socket项，故查找就绪的socket时间复杂度仅为o(1)
 
+[epoll_demo示例](epoll_demo(web_server).cpp)  
+
 ## 对比
 
 ![](compare.jpg)
@@ -68,4 +72,5 @@ epoll的内核的监测socket的数据结构是红黑树，支持快速的增删
 ## 参考文章
 
 知乎： https://zhuanlan.zhihu.com/p/64138532  
-csdn： https://blog.csdn.net/s2603898260/article/details/106799129
+csdn： https://blog.csdn.net/s2603898260/article/details/106799129  
+csdn(demo示例)： https://blog.csdn.net/qq_48383456/article/details/136120360
