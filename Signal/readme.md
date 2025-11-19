@@ -29,6 +29,7 @@ Ps:在block的时候，来的信号会不会标记到pending里？
 - demo示例
 [信号处理函数demo](demo_signal.cpp)  
 [多信号处理函数demo](demo_signal_multi.cpp)  
+[sigaction处理函数demo](demo_sigaction.cpp)  
 
 <br>
 
@@ -54,6 +55,7 @@ Ps:在block的时候，来的信号会不会标记到pending里？
 	/* set中对应signum是否置1 */
 	int sigismember(const sigset_t *set, int signum);
 	```
+
 - demo示例
 [阻塞信号与解除demo](demo_signal_block_unblock.cpp)
 
