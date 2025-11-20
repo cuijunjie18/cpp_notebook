@@ -1,14 +1,20 @@
 # i/o多路复用技术学习笔记
 
+<br>
+
 ## 背景
 
 为什么需要i/o多路复用技术？因为在网络编程中，原始的recv()等函数仅能监视单个文件描述符(socket)，为了线程能对多个文件描述符同时进行监视，便有了i/o多路复用技术.
+
+<br>
 
 ## 类型
 
 - select
 - poll
 - epoll
+
+<br>
 
 ## select笔记
 
@@ -35,11 +41,15 @@ select低效的两个重要原因:
 - 最终需要遍历一遍才能知道哪几个socket活跃.
 - 每次调用都要重新将进程添加到相应socket的等待队列里.
 
-[select_demo示例](select_demo(web_server).cpp)  
+**[select_demo示例](select_demo(web_server).cpp)**  
+
+<br>
 
 ## poll笔记
 
 与select类似，只是用 pollfd 数组替代位图，同时比select多了更多的事件监测.
+
+<br>
 
 ## epoll笔记
 
@@ -63,12 +73,16 @@ while(1){
 
 epoll的内核的监测socket的数据结构是红黑树，支持快速的增删改查；而epoll对象的就绪列表采用的是双向链表，链表上的每一个节点都是活跃的socket项，故查找就绪的socket时间复杂度仅为o(1)
 
-[epoll_demo示例](epoll_demo(web_server).cpp)  
-[非阻塞fd示例](noblock_fd.cpp)
+**[epoll_demo示例](epoll_demo(web_server).cpp)**  
+**[非阻塞fd示例](noblock_fd.cpp)**  
+
+<br>
 
 ## 对比
 
 ![](compare.jpg)
+
+<br>
 
 ## 参考文章
 

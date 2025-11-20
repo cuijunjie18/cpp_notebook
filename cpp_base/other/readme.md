@@ -37,3 +37,7 @@ delete[] p; // 删除方式
 但是最好不要用new,用的话要记住：谁 new，谁 delete
 
 更高级的c++版本可用智能指针等资源管理工具.
+
+## inline关键字的使用
+
+c++规定不能在头文件中定义函数，否则容易在ld阶段出现multiple-defination报错，如果需要可以使用inline关键字去声明函数.
