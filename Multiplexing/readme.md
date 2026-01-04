@@ -18,7 +18,7 @@
 
 ## select笔记
 
-select监视多个socket的基本流程
+select监视多个socket的基本流程(伪代码)
 
 ```cpp
 int s = socket(AF_INET, SOCK_STREAM, 0);  
@@ -40,6 +40,9 @@ while(1){
 select低效的两个重要原因:
 - 最终需要遍历一遍才能知道哪几个socket活跃.
 - 每次调用都要重新将进程添加到相应socket的等待队列里.
+
+
+**注意：select()每次调用是清空对应set中不活跃的fd，所以活跃通过FD_ISSET()来确定是否还存在set中来判断**
 
 <br>
 
@@ -76,6 +79,10 @@ epoll的内核的监测socket的数据结构是红黑树，支持快速的增删
 ## 三种方式对比
 
 ![](compare.jpg)
+
+我的理解：
+- epoll时间复杂度为O(1)的原因
+    O(1)是对于epoll_fd获取到活跃的fd这个行为来讲的，而不是最后的进程判断某个fd活跃；seletc与poll是通过活跃后轮询判断，epoll直接将活跃的插入epoll_fd对象维护的链表中
 
 <br>
 
