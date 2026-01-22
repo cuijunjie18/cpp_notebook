@@ -8,4 +8,5 @@
 - [c++文件操作](file_operator/readme.md) 
 - [c++虚函数](virtual/readme.md)    
 - [c++友元](friend/readme.md)  
+- [c++范型编程](template/readme.md)  
 - [c++未分类](other/readme.md)  
