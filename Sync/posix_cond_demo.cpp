@@ -21,6 +21,9 @@ void threadFunctionWithLock() {
         ready = false;
         count++;
         ready = true;
+
+        /*这里是先通知等待线程，即唤醒等待条件的线程，再释放互斥锁*/
+
         pthread_cond_signal(&cv); // 通知其他等待线程
         pthread_mutex_unlock(&mtx);
     }

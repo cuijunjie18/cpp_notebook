@@ -31,7 +31,7 @@ int main() {
     sigaction(SIGTERM, &sa, NULL);
     sigaction(SIGUSR1, &sa, NULL);
 
-    // （可选）在进行信号处理函数的时候，阻塞所有信号
+    // （可选）在进行信号处理函数的时候，阻塞所有信号，防止在信号处理过程中被其他信号打断
     sigfillset(&sa.sa_mask);  
     
     printf("进程ID: %d\n", getpid());
