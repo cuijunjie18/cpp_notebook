@@ -9,4 +9,5 @@
 - [c++虚函数](virtual/readme.md)    
 - [c++友元](friend/readme.md)  
 - [c++范型编程](template/readme.md)  
+- [c++函数指针](func_pointer/readme.md)  
 - [c++未分类](other/readme.md)  
